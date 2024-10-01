@@ -1,6 +1,6 @@
 export const services = [
     {
-        img: "/img/electronic-security.webp",
+        img: "./img/electronic-security.webp",
         name: "Electronic Security",
         services: [
             {name: "Access Control System", path: "/accessControl"},
@@ -25,7 +25,7 @@ export const services = [
         ],
     },
     {
-        img: "/img/facility-management.webp",
+        img: "./img/facility-management.webp",
         name: "Facility Management",
         services: [
             {name: "Maintenance of precision air conditioners/ Thermostat/AHU"},
@@ -40,7 +40,7 @@ export const services = [
         ],
     },
     {
-        img: "/img/technical-solutions.jpeg",
+        img: "./img/technical-solutions.jpeg",
         name: "Technical Solutions",
         services: [
             {name: "Biometric Attendance Management Systems"},

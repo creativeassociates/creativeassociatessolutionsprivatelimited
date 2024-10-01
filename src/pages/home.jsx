@@ -121,7 +121,7 @@ export function Home() {
 
                 {/* Main Top Section */}
                 <div ref={refTop} className="relative min-h-screen  w-full bg-cover bg-no-repeat bg-center"
-                     style={{backgroundImage: "url('/img/background.webp')"}}>
+                     style={{backgroundImage: "url('./img/background.webp')"}}>
                     <div className="absolute inset-0 h-full w-full bg-gray-900/60"/>
 
                     <motion.div className="grid min-h-screen px-8" initial="hidden"
@@ -155,7 +155,9 @@ export function Home() {
                 <motion.div ref={refWhoWeAre}
                             className="relative flex h-screen content-center items-center justify-center"
                             initial="hidden" animate={isWhoWeAreInView ? "visible" : "hidden"} variants={fadeIn}>
-                    <div className="absolute top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center"/>
+                    <div className="absolute top-0 h-full w-full bg-cover bg-center"
+                         style={{backgroundImage: "url('./img/background-3.png')"}}
+                    />
                     <div className="max-w-8xl container relative mx-auto h-screen flex items-center justify-center">
                         <div className="flex flex-wrap items-center justify-center">
                             <motion.div className="w-full px-4 text-left lg:w-6/12" variants={fadeInUp}>
@@ -172,7 +174,8 @@ export function Home() {
                             <motion.div className="w-full px-4 lg:w-5/12" initial="hidden"
                                         animate={isWhoWeAreInView ? "visible" : "hidden"} variants={slideInFromRight}>
                                 <div
-                                    className="relative h-80 w-full bg-[url('/img/Security.webp')] bg-cover bg-center rounded-lg"/>
+                                    className="relative h-80 w-full bg-cover bg-center rounded-lg"
+                                    style={{backgroundImage: "url('./img/Security.webp)"}}/>
                             </motion.div>
                         </div>
                     </div>
@@ -181,7 +184,10 @@ export function Home() {
                 {/* What We Do Section */}
                 <div ref={refWhatWeDo}
                      className="relative flex h-auto content-center items-center justify-center pt-8 pb-40">
-                    <div className="absolute top-0 h-full w-full bg-[url('/img/background-2.jpg')] bg-cover bg-center"/>
+                    <div
+                        className="absolute top-0 h-full w-full bg-center bg-cover"
+                        style={{backgroundImage: "url('./img/background-2.jpg')"}}
+                    />
                     <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center"/>
                     <motion.div className="max-w-6xl container relative mx-auto" initial="hidden"
                                 animate={isWhatWeDoInView ? "visible" : "hidden"} variants={fadeInUp}>
@@ -220,7 +226,8 @@ export function Home() {
                 </section>
 
                 {/* Services Section */}
-                <div ref={refServices} className="w-full bg-[url('/img/background-3.png')] bg-cover bg-center">
+                <div ref={refServices} className="w-full bg-cover bg-center"
+                     style={{backgroundImage: "url('./img/background-3.png')"}}>
                     <section className=" pt-5 pb-10">
                         <div className="max-w-7xl mx-auto">
                             <Typography variant="h2" color="white" className="mb-4 font-bold text-5xl text-center">
@@ -263,7 +270,7 @@ export function Home() {
                                 variants={slideInFromRight}>
                         <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
                             <CardHeader floated={false} className="relative h-56">
-                                <img alt="Card Image" src="/img/office.jpeg"
+                                <img alt="Card Image" src="./img/office.jpeg"
                                      className="h-full w-full object-cover rounded-t-lg"/>
                             </CardHeader>
                             <CardBody>
