@@ -174,8 +174,7 @@ export function Home() {
                             <motion.div className="w-full px-4 lg:w-5/12" initial="hidden"
                                         animate={isWhoWeAreInView ? "visible" : "hidden"} variants={slideInFromRight}>
                                 <div
-                                    className="relative h-80 w-full bg-cover bg-center rounded-lg"
-                                    style={{backgroundImage: "url('./img/Security.webp)"}}/>
+                                    className="relative h-80 w-full bg-cover bg-center rounded-lg" style={{backgroundImage:"url('./img/Security.webp')"}}/>
                             </motion.div>
                         </div>
                     </div>
