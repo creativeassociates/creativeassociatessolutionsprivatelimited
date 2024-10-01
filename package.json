@@ -1,7 +1,7 @@
 {
   "name": "creativeassociatessolutionsprivatelimited",
   "homepage": "https://creativeassociates.github.io/creativeassociatessolutionsprivatelimited",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
