@@ -97,8 +97,9 @@ export function WhatWeDo() {
                 </div>
                 <div className="w-1/2 pt-20">
                     <motion.div
-                        className="h-80 bg-[url('./img/fingerprint.jpeg')] bg-cover bg-center rounded-lg"
+                        className="h-80 bg-cover bg-center rounded-lg"
                         initial="hidden"
+                        style={{backgroundImage: "url('./img/fingerprint.jpeg')"}}
                         animate={isInView ? "visible" : "hidden"}
                         variants={fadeIn}
                     />

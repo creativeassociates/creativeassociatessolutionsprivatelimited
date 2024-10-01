@@ -20,32 +20,37 @@ export function Home() {
     const PUBLIC_KEY = "HEUdbnpiyTW2pAnxg";
 
     const form = useRef();
-    const formData = new FormData(form.current);
-    const name = formData.get('from_name');
-    const email = formData.get('user_email');
-    const mobileNo = formData.get('mobile_number');
-    const message = formData.get('message');
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [mobileNo, setMobileNo] = useState("");
+    const [message, setMessage] = useState("");
 
     const [status, setStatus] = useState("");
 
     const sendEmail = (e) => {
-        if (name.length < 1 || email.length < 5 || message.length < 0 || mobileNo.length < 10) {
+        if (name.length < 1 || email.length < 5 || message.length < 1 || mobileNo.length < 10) {
             setStatus('All fields are required.');
             return;
         }
-        emailjs
-            .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY
-            )
+
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            from_name: name,
+            user_email: email,
+            mobile_number: mobileNo,
+            message: message,
+        }, PUBLIC_KEY)
             .then(
                 () => {
                     setStatus("Received successfully!");
-                    form.current.reset();
+                    setName("");
+                    setEmail("");
+                    setMobileNo("");
+                    setMessage("");
                 },
                 (error) => {
                     setStatus("Failed to send.");
-                },
+                }
             );
-
     };
 
     const navigate = useNavigate();
@@ -174,7 +179,8 @@ export function Home() {
                             <motion.div className="w-full px-4 lg:w-5/12" initial="hidden"
                                         animate={isWhoWeAreInView ? "visible" : "hidden"} variants={slideInFromRight}>
                                 <div
-                                    className="relative h-80 w-full bg-cover bg-center rounded-lg" style={{backgroundImage:"url('./img/Security.webp')"}}/>
+                                    className="relative h-80 w-full bg-cover bg-center rounded-lg"
+                                    style={{backgroundImage: "url('./img/Security.webp')"}}/>
                             </motion.div>
                         </div>
                     </div>
@@ -292,11 +298,39 @@ export function Home() {
                         </PageTitle>
                         <form ref={form} className="mx-auto w-full mt-12 lg:w-6/12">
                             <div className="mb-8 flex gap-8">
-                                <Input variant="outlined" size="lg" name="from_name" label="Full Name"/>
-                                <Input variant="outlined" size="lg" name="user_email" label="Email Address"/>
-                                <Input variant="outlined" size="lg" name="mobile_number" label="Mobile Number"/>
-                            </div>
-                            <Textarea variant="outlined" size="lg" name="message" label="Message" rows={5}/>
+                                <Input
+                                    variant="outlined"
+                                    size="lg"
+                                    name="from_name"
+                                    label="Full Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                <Input
+                                    variant="outlined"
+                                    size="lg"
+                                    name="user_email"
+                                    label="Email Address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <Input
+                                    variant="outlined"
+                                    size="lg"
+                                    name="mobile_number"
+                                    label="Mobile Number"
+                                    value={mobileNo}
+                                    onChange={(e) => setMobileNo(e.target.value)}
+                                /></div>
+                            <Textarea
+                                variant="outlined"
+                                size="lg"
+                                name="message"
+                                label="Message"
+                                rows={5}
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            />
                             <p className="text-center text-xl">{status}</p>
                             <Button variant="gradient" size="lg" className="mt-8" fullWidth onClick={() => sendEmail()}>
                                 Send Message

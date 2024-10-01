@@ -17,7 +17,7 @@ export function TimeAndAttendanceSystems() {
 
     return (
         <>
-            <div className="relative bg-[url('/img/event.jpeg')]">
+            <div className="relative" style={{backgroundImage: "url('./img/event.jpeg')"}}>
                 <div className="absolute inset-0 h-full w-full bg-gray-900/60"/>
                 <div className="relative container mx-auto p-4">
                     <Navbar routes={navRoutes}/>
@@ -50,8 +50,9 @@ export function TimeAndAttendanceSystems() {
                     </div>
                     <div className="w-1/2 pt-5">
                         <motion.div
-                            className="h-80 bg-[url('/img/Time-&-Attandance-System.jpeg')] bg-cover bg-center rounded-lg"
+                            className="h-80 bg-cover bg-center rounded-lg"
                             initial="hidden"
+                            style={{backgroundImage: "url('./img/Time-&-Attandance-System.jpeg')"}}
                             animate={isInView ? "visible" : "hidden"}
                             variants={fadeIn}
                         />
