@@ -2,6 +2,7 @@ export const services = [
     {
         img: "./img/electronic-security.webp",
         name: "Electronic Security",
+        path: "/electronicSecurity",
         services: [
             {name: "Access Control System", path: "/accessControl"},
             {
@@ -14,11 +15,14 @@ export const services = [
             {
                 name: "Fire Detection/ Fire Fighting System",
                 underContent: [
-                    "Heat/Smoke detection",
-                    "Programmable/Non-programmable fire alarm system",
-                    "Fire Extinguishers",
-                    "Water Sprinklers",
-                    "Hydrant & Wet riser systems"
+                    {name: "Heat/Smoke detection", path: "/heat&smokeDetection",},
+                    {
+                        name: "Programmable/Non-programmable fire alarm system",
+                        path: "/programmable-Non-ProgrammableFireAlarmSystem",
+                    },
+                    {name: "Fire Extinguishers", path: "/fireExtinguishers",},
+                    {name: "Water Sprinklers", path: "/waterSprinklers",},
+                    {name: "Hydrant & Wet riser systems", path: "/hydrant&WetRiserSystems",}
                 ],
                 path: "/fireDetection&FireFightingSystem"
             },
@@ -27,25 +31,31 @@ export const services = [
     {
         img: "./img/facility-management.webp",
         name: "Facility Management",
+        path: "/facilityManagement",
         services: [
-            {name: "Maintenance of precision air conditioners/ Thermostat/AHU"},
-            {name: "VRV / VAV"},
-            {name: "HSU"},
-            {name: "Building Management System"},
-            {name: "AV and PA System"},
-            {name: "Access Control System"},
-            {name: "Visitor Management System"},
-            {name: "Turnstiles / Flap Barrier / Boom Barrier"},
-            {name: "Cafeteria Management"}
+            {
+                name: "Maintenance of precision air conditioners/ Thermostat/AHU",
+                path: "/maintenanceOfPrecisionAirConditioners-Thermostat&AHU"
+            },
+            {name: "VRV / VAV", path: "/vrv-vav"},
+            {name: "HSU", path: "/hsu"},
+            {name: "Building Management System", path: "/buildingManagementSystem"},
+            {name: "AV and PA System", path: "/av&PaSystem"},
+            {name: "Access Control System", path: "/accessControl"},
+            {name: "Visitor Management System", path: "/visitorManagementSystem"},
+            {name: "Turnstiles / Flap Barrier / Boom Barrier", path: "/turnstiles-flapBarrier-boomBarrier"},
+            {name: "Cafeteria Management", path: "/cafeteriaManagement"},
+
         ],
     },
     {
         img: "./img/technical-solutions.jpeg",
         name: "Technical Solutions",
+        path: "/technicalSolutions",
         services: [
-            {name: "Biometric Attendance Management Systems"},
-            {name: "Automated Parking Management"},
-            {name: "Vehicle Management through GPRS Solutions"}
+            {name: "Biometric Attendance Management Systems", path: "/biometricAttendanceManagementSystems"},
+            {name: "Automated Parking Management", path: "/automatedParkingManagement"},
+            {name: "Vehicle Management through GPRS Solutions", path: "/vehicleManagementThroughGPRSSolutions"}
         ],
     },
 ];

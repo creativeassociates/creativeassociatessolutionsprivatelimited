@@ -125,83 +125,114 @@ export function Home() {
                 </div>
 
                 {/* Main Top Section */}
-                <div ref={refTop} className="relative min-h-screen  w-full bg-cover bg-no-repeat bg-center"
+                <div ref={refTop} className="relative min-h-screen w-full bg-cover bg-no-repeat bg-center"
                      style={{backgroundImage: "url('./img/background.webp')"}}>
-                    <div className="absolute inset-0 h-full w-full bg-gray-900/60"/>
+                    <div className="absolute inset-0 h-full w-full bg-gray-900/60"></div>
 
-                    <motion.div className="grid min-h-screen px-8" initial="hidden"
+                    <motion.div className="grid min-h-screen px-4 sm:px-6 md:px-8" initial="hidden"
                                 animate={isTopInView ? "visible" : "hidden"} variants={fadeInUp}>
-                        <div className="container relative my-auto mx-auto grid place-items-center text-center">
-                            <Typography variant="h1" color="white" className="lg:max-w-3xl">
+                        <div className="container relative mx-auto my-auto grid place-items-center text-center">
+                            <Typography variant="h1" color="white"
+                                        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl lg:max-w-3xl">
                                 Provides End-To-End Facility Management Solutions
                             </Typography>
                             <Typography variant="lead" color="white"
-                                        className="mt-1 mb-12 w-full md:max-w-full lg:max-w-2xl font-extrabold">
+                                        className="mt-2 mb-6 sm:mb-8 md:mb-10 w-full text-sm sm:text-base md:text-lg lg:text-xl font-extrabold md:max-w-full lg:max-w-2xl">
                                 Enable You To 'SECURE' Your Facility Environment
                             </Typography>
-                            <motion.div className="flex items-center gap-4" initial={{opacity: 0, y: 20}}
+                            <motion.div className="flex flex-col sm:flex-row items-center gap-4"
+                                        initial={{opacity: 0, y: 20}}
                                         animate={isTopInView ? {opacity: 1, y: 0} : {opacity: 0, y: 20}}
                                         transition={{duration: 0.8}}>
-                                <Button variant="gradient" color="white">
-                                    Get started
-                                </Button>
+                                {/* Add content/buttons here if needed */}
                             </motion.div>
                         </div>
                     </motion.div>
-                    <div className="absolute bottom-32 text-center space-x-20 left-1/4">
-                        <Button onClick={() => scrollToSection(refWhoWeAre)}>Who We Are</Button>
-                        <Button onClick={() => scrollToSection(refWhatWeDo)}>What We Do</Button>
-                        <Button onClick={() => scrollToSection(refServices)}>Services</Button>
-                        <Button onClick={() => scrollToSection(refWorkingWithUs)}>Working With Us</Button>
+
+                    <div className="absolute bottom-16 md:bottom-20 lg:bottom-24 w-full text-center">
+                        <div
+                            className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 px-4 sm:px-8">
+                            <Button className="px-4 py-2 text-sm sm:text-base md:text-lg"
+                                    onClick={() => scrollToSection(refWhoWeAre)}>Who We Are</Button>
+                            <Button className="px-4 py-2 text-sm sm:text-base md:text-lg"
+                                    onClick={() => scrollToSection(refWhatWeDo)}>What We Do</Button>
+                            <Button className="px-4 py-2 text-sm sm:text-base md:text-lg"
+                                    onClick={() => scrollToSection(refServices)}>Services</Button>
+                            <Button className="px-4 py-2 text-sm sm:text-base md:text-lg"
+                                    onClick={() => scrollToSection(refWorkingWithUs)}>Working With Us</Button>
+                        </div>
                     </div>
                 </div>
 
+
                 {/* Who We Are Section */}
                 <motion.div ref={refWhoWeAre}
-                            className="relative flex h-screen content-center items-center justify-center"
-                            initial="hidden" animate={isWhoWeAreInView ? "visible" : "hidden"} variants={fadeIn}>
-                    <div className="absolute top-0 h-full w-full bg-cover bg-center"
+                            className="relative flex min-h-screen items-center justify-center py-16 px-4 sm:px-6 md:px-8"
+                            initial="hidden"
+                            animate={isWhoWeAreInView ? "visible" : "hidden"}
+                            variants={fadeIn}>
+                    <div className="absolute inset-0 h-full w-full bg-cover bg-center"
                          style={{backgroundImage: "url('./img/background-3.png')"}}
                     />
-                    <div className="max-w-8xl container relative mx-auto h-screen flex items-center justify-center">
-                        <div className="flex flex-wrap items-center justify-center">
-                            <motion.div className="w-full px-4 text-left lg:w-6/12" variants={fadeInUp}>
-                                <Typography variant="h1" color="white" className="mb-6 font-black text-center">
-                                    Who we are?
-                                </Typography>
-                                <Typography variant="lead" color="white" className="opacity-80 text-center">
-                                    {whoWeAre}
-                                </Typography>
-                                <Button className="mt-8 mx-auto block" onClick={() => navigate("/woWeAre")}>
-                                    Read More
-                                </Button>
-                            </motion.div>
-                            <motion.div className="w-full px-4 lg:w-5/12" initial="hidden"
-                                        animate={isWhoWeAreInView ? "visible" : "hidden"} variants={slideInFromRight}>
-                                <div
-                                    className="relative h-80 w-full bg-cover bg-center rounded-lg"
-                                    style={{backgroundImage: "url('./img/Security.webp')"}}/>
-                            </motion.div>
-                        </div>
+
+                    <div
+                        className="max-w-7xl container relative mx-auto flex flex-wrap items-center justify-center lg:h-auto lg:flex-nowrap">
+                        {/* Left Content */}
+                        <motion.div className="w-full px-4 mb-8 lg:mb-0 lg:w-6/12 text-center lg:text-left"
+                                    variants={fadeInUp}>
+                            <Typography variant="h1" color="white"
+                                        className="mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl font-black">
+                                Who we are?
+                            </Typography>
+                            <Typography variant="lead" color="white"
+                                        className="opacity-80 text-sm sm:text-base md:text-lg lg:text-xl mb-4">
+                                {whoWeAre}
+                            </Typography>
+                            <Button className="mt-4 px-6 py-2 text-sm sm:text-base md:text-lg"
+                                    onClick={() => navigate("/woWeAre")}>
+                                Read More
+                            </Button>
+                        </motion.div>
+
+                        {/* Right Image */}
+                        <motion.div className="w-full px-4 lg:w-5/12"
+                                    initial="hidden"
+                                    animate={isWhoWeAreInView ? "visible" : "hidden"}
+                                    variants={slideInFromRight}>
+                            <div className="relative h-64 sm:h-80 md:h-96 w-full bg-cover bg-center rounded-lg"
+                                 style={{backgroundImage: "url('./img/Security.webp')"}}/>
+                        </motion.div>
                     </div>
                 </motion.div>
 
                 {/* What We Do Section */}
                 <div ref={refWhatWeDo}
-                     className="relative flex h-auto content-center items-center justify-center pt-8 pb-40">
+                     className="relative flex h-auto items-center justify-center py-8 sm:py-12 md:py-16 lg:py-24">
                     <div
-                        className="absolute top-0 h-full w-full bg-center bg-cover"
+                        className="absolute inset-0 h-full w-full bg-center bg-cover"
                         style={{backgroundImage: "url('./img/background-2.jpg')"}}
                     />
-                    <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center"/>
-                    <motion.div className="max-w-6xl container relative mx-auto" initial="hidden"
-                                animate={isWhatWeDoInView ? "visible" : "hidden"} variants={fadeInUp}>
-                        <div className="flex flex-wrap items-center">
-                            <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12 p-8">
-                                <Typography variant="h2" color="white" className="mb-4 font-bold text-5xl">
+                    <div className="absolute inset-0 h-full w-full bg-black/60"></div>
+
+                    <motion.div
+                        className="max-w-6xl container relative mx-auto px-4 sm:px-6 md:px-8"
+                        initial="hidden"
+                        animate={isWhatWeDoInView ? "visible" : "hidden"}
+                        variants={fadeInUp}>
+                        <div className="flex flex-wrap items-center justify-center">
+                            <div className="w-full px-4 text-center lg:w-8/12 p-4 sm:p-6 md:p-8">
+                                <Typography
+                                    variant="h2"
+                                    color="white"
+                                    className="mb-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                                >
                                     What we do?
                                 </Typography>
-                                <Typography variant="lead" color="white" className="opacity-80 text-xl">
+                                <Typography
+                                    variant="lead"
+                                    color="white"
+                                    className="opacity-80 text-sm sm:text-base md:text-lg lg:text-xl"
+                                >
                                     {whatWeDo}
                                 </Typography>
                             </div>
@@ -210,17 +241,22 @@ export function Home() {
                 </div>
 
                 {/* Features Section */}
-                <section ref={refFeatures} className="-mt-32 bg-white px-4 pb-20">
+                <section ref={refFeatures}
+                         className="-mt-12 sm:-mt-16 md:-mt-20 lg:-mt-24 bg-white px-4 pb-20 sm:px-6 lg:px-8">
                     <div className="container mx-auto">
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             {featuresData.map(({color, title, icon, description}) => (
-                                <motion.div key={title} initial="hidden"
-                                            animate={isFeaturesInView ? "visible" : "hidden"} variants={fadeInUp}>
+                                <motion.div
+                                    key={title}
+                                    initial="hidden"
+                                    animate={isFeaturesInView ? "visible" : "hidden"}
+                                    variants={fadeInUp}
+                                >
                                     <FeatureCard
                                         color={color}
                                         title={title}
                                         icon={React.createElement(icon, {
-                                            className: "w-5 h-5 text-white",
+                                            className: "w-6 h-6 text-white",
                                         })}
                                         description={description}
                                     />
@@ -233,19 +269,25 @@ export function Home() {
                 {/* Services Section */}
                 <div ref={refServices} className="w-full bg-cover bg-center"
                      style={{backgroundImage: "url('./img/background-3.png')"}}>
-                    <section className=" pt-5 pb-10">
-                        <div className="max-w-7xl mx-auto">
-                            <Typography variant="h2" color="white" className="mb-4 font-bold text-5xl text-center">
+                    <section className="pt-5 pb-10">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <Typography
+                                variant="h2"
+                                color="white"
+                                className="mb-4 font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
                                 Our Services
                             </Typography>
-                            <motion.div className="mt-9 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3"
-                                        initial="hidden" animate={isServicesInView ? "visible" : "hidden"}
-                                        variants={fadeInUp}>
-                                {services.map(({img, name, services}) => (
+                            <motion.div
+                                className="mt-9 grid grid-cols-1 gap-6 sm:gap-12 md:grid-cols-2 lg:gap-16 xl:grid-cols-3"
+                                initial="hidden"
+                                animate={isServicesInView ? "visible" : "hidden"}
+                                variants={fadeInUp}>
+                                {services.map(({img, name, path, services}) => (
                                     <ServicesCard
                                         key={name}
                                         img={img}
                                         name={name}
+                                        path={path}
                                         services={services}
                                     />
                                 ))}
@@ -253,6 +295,7 @@ export function Home() {
                         </div>
                     </section>
                 </div>
+
 
                 {/* Working With Us Section */}
                 <div ref={refWorkingWithUs} className="mt-32 flex flex-wrap items-center">
@@ -296,8 +339,8 @@ export function Home() {
                         <PageTitle section="Contact Us" heading="Want to work with us?">
                             Complete this form and we will get back to you in 24 hours.
                         </PageTitle>
-                        <form ref={form} className="mx-auto w-full mt-12 lg:w-6/12">
-                            <div className="mb-8 flex gap-8">
+                        <form ref={form} className="mx-auto w-full mt-12 lg:w-8/12 xl:w-6/12">
+                            <div className="mb-8 flex flex-col gap-4 md:flex-row md:gap-8">
                                 <Input
                                     variant="outlined"
                                     size="lg"
@@ -321,7 +364,8 @@ export function Home() {
                                     label="Mobile Number"
                                     value={mobileNo}
                                     onChange={(e) => setMobileNo(e.target.value)}
-                                /></div>
+                                />
+                            </div>
                             <Textarea
                                 variant="outlined"
                                 size="lg"
@@ -332,7 +376,13 @@ export function Home() {
                                 onChange={(e) => setMessage(e.target.value)}
                             />
                             <p className="text-center text-xl">{status}</p>
-                            <Button variant="gradient" size="lg" className="mt-8" fullWidth onClick={() => sendEmail()}>
+                            <Button
+                                variant="gradient"
+                                size="lg"
+                                className="mt-8"
+                                fullWidth
+                                onClick={() => sendEmail()}
+                            >
                                 Send Message
                             </Button>
                         </form>

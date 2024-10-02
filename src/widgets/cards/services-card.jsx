@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import { Card, Avatar, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import {Card, Avatar, Typography} from "@material-tailwind/react";
+import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
 
-export function ServicesCard({ img, name, services = [] }) {
+export function ServicesCard({img, name, path,services = []}) {
     const navigate = useNavigate();
 
     return (
@@ -16,7 +16,7 @@ export function ServicesCard({ img, name, services = [] }) {
                 className="h-60 w-8/12 border-b-4 border-r-4 border-l-4 rounded-b-xl border-b-blue-gray-200 mx-auto shadow-lg shadow-gray-500/25"
             />
             <Typography variant="h5" color="white" className="mt-6 mb-1 text-center">
-                {name}
+                <Link to={path || "#"}>{name}</Link>
             </Typography>
 
             <div className="container p-2">
@@ -24,14 +24,19 @@ export function ServicesCard({ img, name, services = [] }) {
                     {services.map((service, index) => (
                         <li key={index} className="list-disc">
                             <Link to={service.path || "#"}>{service.name}</Link>
-                            <ul className="pl-4">
-                                {Array.isArray(service.underContent) &&
-                                    service.underContent.map((content, subIndex) => (
+                            {Array.isArray(service.underContent) && (
+                                <ul className="pl-4">
+                                    {service.underContent.map((content, subIndex) => (
                                         <li key={`${index}-${subIndex}`} className="list-disc">
-                                            {content}
+                                            {content.path ? (
+                                                <Link to={content.path}>{content.name}</Link>
+                                            ) : (
+                                                <span>{content.name}</span>
+                                            )}
                                         </li>
                                     ))}
-                            </ul>
+                                </ul>
+                            )}
                         </li>
                     ))}
                 </ul>
@@ -43,11 +48,17 @@ export function ServicesCard({ img, name, services = [] }) {
 ServicesCard.propTypes = {
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
     services: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
             path: PropTypes.string, // Make path optional
-            underContent: PropTypes.arrayOf(PropTypes.string),
+            underContent: PropTypes.arrayOf(PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string.isRequired,
+                    path: PropTypes.string,
+                })
+            )),
         })
     ).isRequired,
 };
