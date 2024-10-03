@@ -28,6 +28,11 @@ export function Footer({
         <footer className="relative px-4 pt-8 pb-6 bg-gray-50">
             <div className="container mx-auto">
                 <div className="flex flex-wrap pt-6 lg:text-left">
+                    <img
+                        src="/img/Creative-Associates-Solution-Pvt-Ltd.png"
+                        alt="Creative Associates Solution Pvt Ltd Logo"
+                        className="h-32 w-auto mb-4" // Increased height for visibility
+                    />
                     <div className="w-full px-4 lg:w-6/12">
                         <Typography variant="h4" className="mb-4" color="blue-gray">
                             {title}
@@ -42,8 +47,12 @@ export function Footer({
                                     href={path}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label={name} // Added accessibility label
                                 >
-                                    <IconButton color="white" className="rounded-full shadow-none bg-transparent">
+                                    <IconButton
+                                        color="white"
+                                        className="rounded-full shadow-none bg-transparent"
+                                    >
                                         <Typography color={color}>
                                             <i className={`fa-brands fa-${name}`}/>
                                         </Typography>
@@ -60,54 +69,52 @@ export function Footer({
                         </div>
                         <div>
                             <span className="font-semibold">Email ID:</span> <br/>
-                            <span className="text-gray-700">manishahuja2806@gmail.com</span>
+                            <span className="text-gray-700">manish@casplindia.com</span>
                         </div>
                     </div>
 
-
-                    {/*<div className="mx-auto mt-12 grid w-max gap-24 lg:mt-0">*/}
-                    {/*    {menus.map(({name, items}) => (*/}
-                    {/*        <div key={name}>*/}
-                    {/*            <Typography*/}
-                    {/*                variant="small"*/}
-                    {/*                color="blue-gray"*/}
-                    {/*                className="mb-2 block font-medium uppercase"*/}
-                    {/*            >*/}
-                    {/*                {name}*/}
-                    {/*            </Typography>*/}
-                    {/*            <ul className="mt-3">*/}
-                    {/*                {items.map((item) => (*/}
-                    {/*                    <li key={item.name}>*/}
-                    {/*                        <Typography*/}
-                    {/*                            as="a"*/}
-                    {/*                            href={item.path}*/}
-                    {/*                            target="_blank"*/}
-                    {/*                            rel="noreferrer"*/}
-                    {/*                            variant="small"*/}
-                    {/*                            className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"*/}
-                    {/*                        >*/}
-                    {/*                            {item.name}*/}
-                    {/*                        </Typography>*/}
-                    {/*                    </li>*/}
-                    {/*                ))}*/}
-                    {/*            </ul>*/}
-                    {/*        </div>*/}
-                    {/*    ))}*/}
-                    {/*</div>*/}
+                    {/* Optional menus section, uncomment if needed */}
+                    {/* <div className="mx-auto mt-12 grid w-max gap-24 lg:mt-0">
+                {menus.map(({ name, items }) => (
+                    <div key={name}>
+                        <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="mb-2 block font-medium uppercase"
+                        >
+                            {name}
+                        </Typography>
+                        <ul className="mt-3">
+                            {items.map((item) => (
+                                <li key={item.name}>
+                                    <Typography
+                                        as="a"
+                                        href={item.path}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        variant="small"
+                                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
+                                    >
+                                        {item.name}
+                                    </Typography>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div> */}
                 </div>
                 <hr className="my-6 border-gray-300"/>
                 <div className="flex flex-wrap items-center justify-center md:justify-between">
                     <div className="mx-auto w-full px-4 text-center">
-                        <Typography
-                            variant="small"
-                            className="font-normal text-blue-gray-500"
-                        >
+                        <Typography variant="small" className="font-normal text-blue-gray-500">
                             {copyright}
                         </Typography>
                     </div>
                 </div>
             </div>
         </footer>
+
     );
 }
 
@@ -136,5 +143,3 @@ Footer.propTypes = {
 };
 
 Footer.displayName = "/src/widgets/layout/footer.jsx";
-
-export default Footer;

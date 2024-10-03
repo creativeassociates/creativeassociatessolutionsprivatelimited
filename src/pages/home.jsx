@@ -318,7 +318,7 @@ export function Home() {
                                 variants={slideInFromRight}>
                         <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
                             <CardHeader floated={false} className="relative h-56">
-                                <img alt="Card Image" src="./img/office.jpeg"
+                                <img alt="Card Image" src="/img/office.jpeg"
                                      className="h-full w-full object-cover rounded-t-lg"/>
                             </CardHeader>
                             <CardBody>
