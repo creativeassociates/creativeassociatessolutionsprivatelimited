@@ -10,7 +10,7 @@ import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 
 export function Navbar({
                            brandName = "CREATIVE ASSOCIATES SOLUTIONS PRIVATE LIMITED",
-                           routes
+                           routes,
                        }) {
     const [openNav, setOpenNav] = React.useState(false);
 
@@ -58,9 +58,10 @@ export function Navbar({
 
     return (
         <nav className="p-3">
-            <div className="flex justify-between text-white">
-                <Link to="/">
-                    <Typography className="cursor-pointer items-start font-extrabold text-2xl tracking-widest">
+            <div className="flex justify-between items-center text-white">
+                <Link to="/" className="flex items-center gap-2">
+                    <img src="/img/Creative-Associates-Solution-Pvt-Ltd.png" alt="logo" className="h-36 w-auto bg-blue-50"/>
+                    <Typography className="cursor-pointer font-extrabold text-xl tracking-widest">
                         {brandName}
                     </Typography>
                 </Link>
@@ -102,7 +103,7 @@ Navbar.propTypes = {
             href: PropTypes.string,
             target: PropTypes.string,
         })
-    ).isRequired,
+    ).isRequired, // Prop type for the logo
 };
 
 Navbar.displayName = "/src/widgets/layout/navbar.jsx";
