@@ -12,6 +12,7 @@ import Navbar from "../widgets/layout/navbar.jsx";
 import {motion, useInView} from "framer-motion";
 import * as emailjs from "emailjs-com";
 import {navRoutes} from "../routes.jsx";
+import {ClientSlider} from "./client_slider.jsx";
 
 export function Home() {
 
@@ -295,7 +296,7 @@ export function Home() {
                         </div>
                     </section>
                 </div>
-
+                <ClientSlider/>
 
                 {/* Working With Us Section */}
                 <div ref={refWorkingWithUs} className="mt-32 flex flex-wrap items-center">

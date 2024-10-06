@@ -1,0 +1,29 @@
+.client-slider {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add spacing between slides */
+}
+
+.client-image-container {
+    width: 200px; /* Width of the rectangular container */
+    height: 100px; /* Height of the rectangular container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd; /* Optional border for visual separation */
+    border-radius: 8px; /* Optional rounded corners */
+    overflow: hidden; /* Hide any overflow */
+    background-color: #f9f9f9; /* Optional background color */
+}
+
+.client-image {
+    width: 100%;  /* Force the image to take the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures image fits in container without stretching */
+}
